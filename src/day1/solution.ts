@@ -1,8 +1,4 @@
-const windowIncreased = (
-  arr: number[],
-  lastWindowIndex: number,
-  window = 1
-) => {
+const windowIncreased = (arr: number[], lastWindowIndex: number, window = 1) => {
   if (lastWindowIndex <= window) return false;
 
   let sum = 0;

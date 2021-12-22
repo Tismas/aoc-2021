@@ -21,13 +21,7 @@ export const part1 = (input: string) => {
 
 export const part2 = (input: string) => {
   const sorted = parseInput(input);
-  const average = Math.round(
-    sorted.reduce((acc, x) => acc + x) / sorted.length
-  );
+  const average = Math.round(sorted.reduce((acc, x) => acc + x) / sorted.length);
 
-  return Math.min(
-    getDistance(sorted, average),
-    getDistance(sorted, average - 1),
-    getDistance(sorted, average + 1)
-  );
+  return Math.min(getDistance(sorted, average), getDistance(sorted, average - 1), getDistance(sorted, average + 1));
 };

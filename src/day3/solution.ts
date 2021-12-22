@@ -16,10 +16,7 @@ const getMostCommonBits = (numbers: string[]): string => {
   return gamma;
 };
 
-const filterBySomething = (
-  numbers: string[],
-  predicate: (digit: string, mostCommon: string) => boolean
-): string => {
+const filterBySomething = (numbers: string[], predicate: (digit: string, mostCommon: string) => boolean): string => {
   let pointer = 0;
   while (numbers.length > 1) {
     const mostCommonBit = getMostCommonBitAtPosition(numbers, pointer);
@@ -50,14 +47,8 @@ export const part1 = (input: string) => {
 export const part2 = (input: string) => {
   let numbers = input.split("\n");
 
-  const oxygen = filterBySomething(
-    numbers,
-    (digit, mostCommon) => digit === mostCommon
-  );
-  const co2 = filterBySomething(
-    numbers,
-    (digit, mostCommon) => digit !== mostCommon
-  );
+  const oxygen = filterBySomething(numbers, (digit, mostCommon) => digit === mostCommon);
+  const co2 = filterBySomething(numbers, (digit, mostCommon) => digit !== mostCommon);
 
   return parseInt(oxygen, 2) * parseInt(co2, 2);
 };

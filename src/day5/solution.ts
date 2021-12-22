@@ -29,16 +29,10 @@ const parseInput = (input: string): Line[] => {
 };
 
 const getBoard = (lines: Line[]): Board => {
-  let maxWidth = Math.max(
-    ...lines.flatMap((line) => [line.start.x, line.end.x])
-  );
-  let maxHeight = Math.max(
-    ...lines.flatMap((line) => [line.start.y, line.end.y])
-  );
+  let maxWidth = Math.max(...lines.flatMap((line) => [line.start.x, line.end.x]));
+  let maxHeight = Math.max(...lines.flatMap((line) => [line.start.y, line.end.y]));
 
-  const board = new Array(maxHeight + 1)
-    .fill(0)
-    .map(() => new Array(maxWidth + 1).fill(0).map(() => ({ values: [] })));
+  const board = new Array(maxHeight + 1).fill(0).map(() => new Array(maxWidth + 1).fill(0).map(() => ({ values: [] })));
 
   return board;
 };
@@ -46,9 +40,7 @@ const getBoard = (lines: Line[]): Board => {
 const printBoard = (board: Board): void => {
   for (const row of board) {
     for (const cell of row) {
-      process.stdout.write(
-        cell.values.length ? cell.values.length.toString() : "."
-      );
+      process.stdout.write(cell.values.length ? cell.values.length.toString() : ".");
     }
     console.log("");
   }
@@ -73,9 +65,7 @@ const drawLines = (board: Board, lines: Line[], includeDiagonal = false) => {
       const signX = Math.sign(line.end.x - line.start.x);
       const signY = Math.sign(line.end.y - line.start.y);
       for (let diff = 0; diff <= delta; diff++) {
-        board[line.start.y + diff * signY][
-          line.start.x + diff * signX
-        ].values.push(line.id);
+        board[line.start.y + diff * signY][line.start.x + diff * signX].values.push(line.id);
       }
     }
   }
@@ -87,8 +77,7 @@ export const part1 = (input: string) => {
 
   drawLines(board, lines);
 
-  return board.flatMap((line) => line).filter((cell) => cell.values.length >= 2)
-    .length;
+  return board.flatMap((line) => line).filter((cell) => cell.values.length >= 2).length;
 };
 
 export const part2 = (input: string) => {
@@ -97,6 +86,5 @@ export const part2 = (input: string) => {
 
   drawLines(board, lines, true);
 
-  return board.flatMap((line) => line).filter((cell) => cell.values.length >= 2)
-    .length;
+  return board.flatMap((line) => line).filter((cell) => cell.values.length >= 2).length;
 };

@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 
+import "./framework";
 import { Solution } from "./types/solution";
 
 const getFilePathsForDay = (day: number) => {
