@@ -1,12 +1,21 @@
 import { part1, part2 } from "./solution";
 
-const input = ``;
+const input = `[({(<(())[]>[[{[]{<()<>>
+  [(()[<>])]({[<{<<[]>>(
+  {([(<{}[<>[]}>{[]{[(<()>
+  (((({<>}<{<{<>}{[]{[]{}
+  [[<[([]))<([[{}[[()]]]
+  [{[{({}]{}}([{[{{{}}([]
+  {<[[]]>}<{[{[{[]{()[[[]
+  [<(<(<(<{}))><([]([]()
+  <{([([[(<>()){}]>(<<{{
+  <{([{{}}[<[[[<>{}]]]>[]]`;
 
 describe("day10", () => {
   it("part1", () => {
-    expect(part1(input)).toEqual(0);
+    expect(part1(input)).toEqual(26397);
   });
   it("part2", () => {
-    expect(part2(input)).toEqual(0);
+    expect(part2(input)).toEqual(288957);
   });
 });
