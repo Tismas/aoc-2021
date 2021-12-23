@@ -11,7 +11,7 @@ const input = `0,9 -> 5,9
 0,0 -> 8,8
 5,5 -> 8,2`;
 
-describe("day1", () => {
+describe("day5", () => {
   it("part1", () => {
     expect(part1(input)).toEqual(5);
   });

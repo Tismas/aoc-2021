@@ -7,7 +7,7 @@ up 3
 down 8
 forward 2`;
 
-describe("day1", () => {
+describe("day2", () => {
   it("part1", () => {
     expect(part1(input)).toEqual(150);
   });

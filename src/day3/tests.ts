@@ -13,7 +13,7 @@ const input = `00100
 00010
 01010`;
 
-describe("day1", () => {
+describe("day3", () => {
   it("part1", () => {
     expect(part1(input)).toEqual(198);
   });

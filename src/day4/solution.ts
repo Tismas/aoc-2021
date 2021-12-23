@@ -20,7 +20,7 @@ const parseInput = (input: string): PrasedInput => {
     boards: lines
       .slice(2)
       .join("\n")
-      .split("\n\n")
+      .split(/\r?\n\r?\n/)
       .map((x) =>
         x.split("\n").map((x) =>
           x
@@ -37,6 +37,7 @@ const parseInput = (input: string): PrasedInput => {
 const queryBoardThatWon = (boards: Board[]): Board | null => {
   for (const board of boards) {
     const size = board.length;
+
     for (let y = 0; y < size; y++) {
       let rowWin = true;
       let colWin = true;
